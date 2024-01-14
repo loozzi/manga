@@ -6,9 +6,9 @@ import { history } from './configs/history.tsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <HistoryRouter history={history}>
-      <App />
-    </HistoryRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <HistoryRouter history={history}>
+    <App />
+  </HistoryRouter>
+  // </React.StrictMode>
 )

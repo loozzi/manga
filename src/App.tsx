@@ -1,11 +1,22 @@
 import React from 'react'
-import { Button } from 'antd'
+import { Route, Routes, useLocation } from 'react-router'
 
-const App = () => (
-  <div className='App'>
-    <Button type='primary'>Button</Button>
-    <h1>hello world</h1>
-  </div>
-)
+import routes from '~/configs/routes'
+import PublicLayout from '~/layouts/public'
+import HomePage from '~/pages/home'
+
+const App = () => {
+  const location = useLocation()
+
+  return (
+    <div className='root'>
+      <Routes location={location}>
+        <Route path={routes.PUBLIC} element={<PublicLayout />}>
+          <Route path={routes.HOME} element={<HomePage />} />
+        </Route>
+      </Routes>
+    </div>
+  )
+}
 
 export default App
