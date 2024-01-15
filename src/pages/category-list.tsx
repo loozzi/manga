@@ -2,11 +2,11 @@ import { Fragment } from 'react'
 import { useParams } from 'react-router'
 import ListCardComp from '~/components/list-card'
 
-const ComicList = () => {
-  const { type } = useParams()
-  let _type = `/danh-sach/${type}`
+const CategoryList = () => {
+  const { slug } = useParams()
+  let _type = `/the-loai/${slug}`
 
-  if (type?.length === 0) {
+  if (slug?.length === 0) {
     _type = '/danh-sach/truyen-moi'
   }
 
@@ -17,4 +17,4 @@ const ComicList = () => {
   )
 }
 
-export default ComicList
+export default CategoryList

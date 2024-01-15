@@ -1,6 +1,5 @@
 import { CheckCircleOutlined, ClockCircleOutlined, SyncOutlined } from '@ant-design/icons'
-import { Card, Col, Flex, Tag, Tooltip } from 'antd'
-import { Fragment } from 'react'
+import { Card, Col, Tag, Tooltip } from 'antd'
 import { Link } from 'react-router-dom'
 import { Item } from '~/models/data'
 import CardContentComp from './card-content'

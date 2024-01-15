@@ -23,7 +23,7 @@ const api = {
   },
   getByType: async (page: Number, type: string) => {
     const pageNum: Number = page || 1
-    const response: IResponse<Data> = await request.get(`/danh-sach/${type}`, {
+    const response: IResponse<Data> = await request.get(type, {
       params: {
         page: pageNum
       }
