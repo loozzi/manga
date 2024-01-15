@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
-
-import { IResponse, Category, Data } from '~/models/response'
+import { Category } from '~/models/category'
+import { Data } from '~/models/data'
+import { IResponse } from '~/models/response'
 
 const request = axios.create({
   baseURL: 'https://otruyenapi.com/v1/api'
@@ -20,9 +21,9 @@ const api = {
     const response: IResponse<Category> = await request.get('/the-loai')
     return response.status === 'success' ? response.data?.items : []
   },
-  getHome: async (page: Number) => {
+  getByType: async (page: Number, type: string) => {
     const pageNum: Number = page || 1
-    const response: IResponse<Data> = await request.get('/home', {
+    const response: IResponse<Data> = await request.get(`/danh-sach/${type}`, {
       params: {
         page: pageNum
       }

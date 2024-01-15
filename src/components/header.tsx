@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Header } from 'antd/es/layout/layout'
 import { Menu } from 'antd'
 import api from '~/configs/api'
-import { Category } from '~/models/response'
+import { Category } from '~/models/category'
 import SubMenu from 'antd/es/menu/SubMenu'
 import { Link } from 'react-router-dom'
 
@@ -45,7 +45,7 @@ const HeaderComp = () => {
         textAlign: 'center'
       }}
     >
-      <Link to='/' style={{ height: '32px' }}>
+      <Link to='/' style={{ height: '32px', marginRight: 32 }}>
         <img src='https://mangatooncom.vn/official/logo.svg' alt='' style={{ height: '32px' }} />
       </Link>
       <Menu theme='dark' mode='horizontal' style={{ flex: 1, minWidth: 0 }}>
@@ -55,6 +55,23 @@ const HeaderComp = () => {
               {!loading && MenuItems(menu)}
             </SubMenu>
           </Link>
+        </Menu.Item>
+        <SubMenu title='Danh Sách' key='commic-list'>
+          <Menu.Item key='new'>
+            <Link to='/danh-sach/truyen-moi'>Truyện Mới</Link>
+          </Menu.Item>
+          <Menu.Item key='comming-soon'>
+            <Link to='/danh-sach/sap-ra-mat'>Sắp Ra Mắt</Link>
+          </Menu.Item>
+          <Menu.Item key='ongoing'>
+            <Link to='/danh-sach/dang-phat-hanh'>Đang Phát Hành</Link>
+          </Menu.Item>
+          <Menu.Item key='completed'>
+            <Link to='/danh-sach/hoan-thanh'>Hoàn Thành</Link>
+          </Menu.Item>
+        </SubMenu>
+        <Menu.Item key='history'>
+          <Link to='/lich-su'>Lịch sử</Link>
         </Menu.Item>
         <Menu.Item key='search'>
           <Link to='/tim-kiem'>Tìm kiếm</Link>
