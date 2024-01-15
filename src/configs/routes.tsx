@@ -1,7 +1,8 @@
 const routes = {
   PUBLIC: '/*',
   PRIVATE: '/*',
-  HOME: ''
+  HOME: '',
+  COMIC_LIST: 'danh-sach/:type'
 }
 
 export default routes

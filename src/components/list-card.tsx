@@ -5,7 +5,7 @@ import { Data, Item } from '~/models/data'
 import { PaginationModel } from '~/models/pagination'
 import CardComp from './card'
 
-const ListCardComp = (payload: { setSeoOnPage: Function | undefined; type: string }) => {
+const ListCardComp = (payload: { setSeoOnPage?: Function | undefined; type: string }) => {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState<Item[]>([])
   const [page, setPage] = useState<Number>(1)
@@ -28,10 +28,10 @@ const ListCardComp = (payload: { setSeoOnPage: Function | undefined; type: strin
       setDomainCdn(response.APP_DOMAIN_CDN_IMAGE)
       setBreadCrumb(response.breadCrumb)
       setLoading(false)
-      console.log(response.seoOnPage)
+      console.log(response.items)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
-  }, [page])
+  }, [page, type])
   return (
     <Fragment>
       {!breadCrumb && <Spin />}

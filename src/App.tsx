@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router'
 import routes from '~/configs/routes'
 import PublicLayout from '~/layouts/public'
 import HomePage from '~/pages/home'
+import ComicList from './pages/comic-list'
 
 const App = () => {
   const location = useLocation()
@@ -13,6 +14,7 @@ const App = () => {
       <Routes location={location}>
         <Route path={routes.PUBLIC} element={<PublicLayout />}>
           <Route path={routes.HOME} element={<HomePage />} />
+          <Route path={routes.COMIC_LIST} element={<ComicList />} />
         </Route>
       </Routes>
     </div>

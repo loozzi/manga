@@ -45,20 +45,26 @@ const HeaderComp = () => {
         textAlign: 'center'
       }}
     >
-      <Link to='/' style={{ height: '32px', marginRight: 32 }}>
-        <img src='https://mangatooncom.vn/official/logo.svg' alt='' style={{ height: '32px' }} />
-      </Link>
       <Menu theme='dark' mode='horizontal' style={{ flex: 1, minWidth: 0 }}>
-        <Menu.Item key='category'>
-          <Link to='/the-loai'>
-            <SubMenu key='sub1' title='Thể loại'>
-              {!loading && MenuItems(menu)}
-            </SubMenu>
+        <Menu.Item key='home'>
+          <Link
+            to='/'
+            style={{
+              height: '64px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <img src='https://mangatooncom.vn/official/logo.svg' alt='' style={{ height: '32px' }} />
           </Link>
         </Menu.Item>
+        <SubMenu key='category' title='Thể loại'>
+          {!loading && MenuItems(menu)}
+        </SubMenu>
         <SubMenu title='Danh Sách' key='commic-list'>
           <Menu.Item key='new'>
-            <Link to='/danh-sach/truyen-moi'>Truyện Mới</Link>
+            <Link to='/danh-sach/truyen-moi'>Mới Cập Nhật</Link>
           </Menu.Item>
           <Menu.Item key='comming-soon'>
             <Link to='/danh-sach/sap-ra-mat'>Sắp Ra Mắt</Link>
