@@ -5,6 +5,7 @@ import PublicLayout from '~/layouts/public'
 import HomePage from '~/pages/home'
 import ComicList from './pages/comic-list'
 import CategoryList from './pages/category-list'
+import ComicDetail from './pages/comic-detail'
 
 const App = () => {
   const location = useLocation()
@@ -16,6 +17,7 @@ const App = () => {
           <Route path={routes.HOME} element={<HomePage />} />
           <Route path={routes.COMIC_LIST} element={<ComicList />} />
           <Route path={routes.CATEGORY_LIST} element={<CategoryList />} />
+          <Route path={routes.COMIC} element={<ComicDetail />} />
         </Route>
       </Routes>
     </div>

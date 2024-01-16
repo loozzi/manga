@@ -2,7 +2,7 @@ import { Category } from './category'
 import { Params } from './pagination'
 import { SeoOnPage } from './response'
 
-export interface ChaptersLatest {
+export interface Chapter {
   filename: string
   chapter_name: string
   chapter_title: string
@@ -14,8 +14,10 @@ export interface Data {
   items: Item[]
   params: Params
   type_list: string
-  APP_DOMAIN_FRONTEND: string
   APP_DOMAIN_CDN_IMAGE: string
+  breadCrumb?: any[]
+  APP_DOMAIN_FRONTEND?: string
+  item?: Item
 }
 
 export interface Item {
@@ -28,5 +30,13 @@ export interface Item {
   sub_docquyen: boolean
   category: Category[]
   updatedAt: string
-  chaptersLatest: ChaptersLatest[]
+  chaptersLatest?: Chapter[]
+  chapters?: Server[]
+  content?: string
+  author?: string[]
+}
+
+export interface Server {
+  server_name: string
+  server_data: Chapter[]
 }

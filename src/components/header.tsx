@@ -45,7 +45,7 @@ const HeaderComp = () => {
         textAlign: 'center'
       }}
     >
-      <Menu theme='dark' mode='horizontal' style={{ flex: 1, minWidth: 0 }}>
+      <Menu theme='dark' mode='horizontal' style={{ flex: 1, minWidth: 0 }} selectedKeys={[]}>
         <Menu.Item key='home'>
           <Link
             to='/'

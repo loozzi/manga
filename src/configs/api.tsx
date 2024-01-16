@@ -29,6 +29,10 @@ const api = {
       }
     })
     return response.status === 'success' ? response.data : {}
+  },
+  getDetail: async (slug: string) => {
+    const response: IResponse<Data> = await request.get(`/truyen-tranh/${slug}`)
+    return response.status === 'success' ? response.data : {}
   }
 }
 

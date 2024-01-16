@@ -13,7 +13,7 @@ const CardComp = (payload: { data: Item; domainCdn: string; isLoading: boolean }
         <Card
           key={data._id}
           hoverable
-          style={{ width: 280, marginBottom: '16px' }}
+          style={{ width: 280 }}
           loading={isLoading}
           cover={
             <img

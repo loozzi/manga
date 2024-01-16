@@ -36,7 +36,7 @@ const ListCardComp = (payload: { setSeoOnPage?: Function | undefined; type: stri
     <Fragment>
       {!breadCrumb && <Spin />}
       {breadCrumb && <Divider orientation='left'>{`${breadCrumb[0]?.name} - ${breadCrumb[1]?.name}`}</Divider>}
-      <Row gutter={16} justify={'center'} align={'top'} style={{ width: '100%', margin: '0' }}>
+      <Row gutter={[16, 16]} justify={'center'} align={'top'} style={{ width: '100%', margin: '0' }}>
         {data.map((item: Item) => (
           <CardComp key={item._id} data={item} domainCdn={domainCdn} isLoading={loading} />
         ))}

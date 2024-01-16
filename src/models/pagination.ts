@@ -1,9 +1,9 @@
 export interface Params {
-  type_slug: string
-  filterCategory: any[]
-  sortField: string
-  pagination: PaginationModel
-  itemsUpdateInDay: number
+  type_slug?: string
+  filterCategory?: any[]
+  sortField?: string
+  pagination?: PaginationModel
+  itemsUpdateInDay?: number
 }
 
 export interface PaginationModel {
