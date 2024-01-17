@@ -3,8 +3,10 @@ import VirtualList from 'rc-virtual-list'
 import { Link } from 'react-router-dom'
 import { Chapter } from '~/models/data'
 
-const ListChapter = (payload: { chapters: Chapter[] }) => {
-  const { chapters } = payload
+const ListChapter = (payload: { chapters: Chapter[]; slug: string }) => {
+  const { slug } = payload
+
+  const chapters = payload.chapters.reverse()
 
   return (
     <List>
@@ -14,7 +16,7 @@ const ListChapter = (payload: { chapters: Chapter[] }) => {
             <List.Item.Meta
               title={
                 <Link
-                  to={`/chap/${item.chapter_api_data.split('/')[item.chapter_api_data.split('/').length - 1]}`}
+                  to={`/truyen/${slug}/${item.chapter_name}`}
                 >{`Chương ${item.chapter_name}: ${item.filename}`}</Link>
               }
             />

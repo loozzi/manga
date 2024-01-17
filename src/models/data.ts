@@ -40,3 +40,22 @@ export interface Server {
   server_name: string
   server_data: Chapter[]
 }
+
+export interface ChapterImage {
+  image_page: number
+  image_file: string
+}
+
+export interface ChapterData {
+  _id: string
+  comic_name: string
+  chapter_name: string
+  chapter_title: string
+  chapter_path: string
+  chapter_image: ChapterImage[]
+}
+
+export interface ChapterResponse {
+  domain_cdn: string
+  item: ChapterData
+}

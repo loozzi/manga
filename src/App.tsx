@@ -2,10 +2,12 @@ import { Route, Routes, useLocation } from 'react-router'
 
 import routes from '~/configs/routes'
 import PublicLayout from '~/layouts/public'
+import PrivateLayout from './layouts/private'
 import HomePage from '~/pages/home'
 import ComicList from './pages/comic-list'
 import CategoryList from './pages/category-list'
 import ComicDetail from './pages/comic-detail'
+import ChapterDetail from './pages/chapter-detail'
 
 const App = () => {
   const location = useLocation()
@@ -19,6 +21,7 @@ const App = () => {
           <Route path={routes.CATEGORY_LIST} element={<CategoryList />} />
           <Route path={routes.COMIC} element={<ComicDetail />} />
         </Route>
+        <Route path={routes.PRIVATE} element={<PrivateLayout />}></Route>
       </Routes>
     </div>
   )

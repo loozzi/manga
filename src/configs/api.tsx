@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 import { Category } from '~/models/category'
-import { Data } from '~/models/data'
+import { ChapterResponse, Data } from '~/models/data'
 import { IResponse } from '~/models/response'
 
 const request = axios.create({
@@ -32,6 +32,12 @@ const api = {
   },
   getDetail: async (slug: string) => {
     const response: IResponse<Data> = await request.get(`/truyen-tranh/${slug}`)
+    return response.status === 'success' ? response.data : {}
+  },
+  getChapter: async (chapter: string) => {
+    const response: IResponse<ChapterResponse> = (
+      await axios.get(`https://sv1.otruyencdn.com/v1/api/chapter/${chapter}`)
+    ).data
     return response.status === 'success' ? response.data : {}
   }
 }
