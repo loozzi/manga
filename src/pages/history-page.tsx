@@ -18,7 +18,8 @@ const HistoryPage = () => {
     <Row
       gutter={[16, 16]}
       style={{
-        margin: 16
+        padding: 16,
+        margin: '0 auto'
       }}
     >
       {data.map((item: any) => (

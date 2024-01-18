@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router'
+import { Button, Result } from 'antd'
 
 import routes from '~/configs/routes'
 import PublicLayout from '~/layouts/public'
@@ -8,6 +9,8 @@ import ComicList from '~/pages/comic-list'
 import CategoryList from '~/pages/category-list'
 import ComicDetail from '~/pages/comic-detail'
 import HistoryPage from '~/pages/history-page'
+import SearchPage from '~/pages/search'
+import { history } from '~/configs/history'
 
 const App = () => {
   const location = useLocation()
@@ -21,7 +24,24 @@ const App = () => {
           <Route path={routes.CATEGORY_LIST} element={<CategoryList />} />
           <Route path={routes.COMIC} element={<ComicDetail />} />
           <Route path={routes.HISTORY} element={<HistoryPage />} />
+          <Route path={routes.SEARCH} element={<SearchPage />} />
         </Route>
+        <Route
+          path='/404'
+          element={
+            <Result
+              style={{ backgroundColor: '#fff', height: '100vh' }}
+              status='404'
+              title='404'
+              subTitle='Sorry, the page you visited does not exist.'
+              extra={
+                <Button type='primary' onClick={() => history.push('/')}>
+                  Back Home
+                </Button>
+              }
+            />
+          }
+        />
         <Route path={routes.PRIVATE} element={<PrivateLayout />}></Route>
       </Routes>
     </div>

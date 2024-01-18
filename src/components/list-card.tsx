@@ -24,7 +24,6 @@ const ListCardComp = (payload: { setSeoOnPage?: Function | undefined; type: stri
     setData([])
     setPage(1)
     setPagination({} as PaginationModel)
-    setDomainCdn
     setBreadCrumb([])
     setLoading(true)
     if (!type.includes('undefined'))

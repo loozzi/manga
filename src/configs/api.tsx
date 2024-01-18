@@ -39,6 +39,15 @@ const api = {
       await axios.get(`https://sv1.otruyencdn.com/v1/api/chapter/${chapter}`)
     ).data
     return response.status === 'success' ? response.data : {}
+  },
+  search: async (search: string) => {
+    const response: IResponse<any> = await request.get('/tim-kiem', {
+      params: {
+        keyword: search
+      }
+    })
+
+    return response.status === 'success' ? response.data : {}
   }
 }
 

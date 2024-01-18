@@ -6,6 +6,7 @@ import api from '~/configs/api'
 import { Category } from '~/models/category'
 import SubMenu from 'antd/es/menu/SubMenu'
 import { Link } from 'react-router-dom'
+import routes from '~/configs/routes'
 
 const HeaderComp = () => {
   const [menu, setMenu] = useState([])
@@ -64,7 +65,7 @@ const HeaderComp = () => {
         </SubMenu>
         <SubMenu title='Danh Sách' key='commic-list'>
           <Menu.Item key='new'>
-            <Link to='/danh-sach/truyen-moi'>Mới Cập Nhật</Link>
+            <Link to='/truyen-moi'>Mới Cập Nhật</Link>
           </Menu.Item>
           <Menu.Item key='comming-soon'>
             <Link to='/danh-sach/sap-ra-mat'>Sắp Ra Mắt</Link>
@@ -77,10 +78,10 @@ const HeaderComp = () => {
           </Menu.Item>
         </SubMenu>
         <Menu.Item key='history'>
-          <Link to='/lich-su'>Lịch sử</Link>
+          <Link to={routes.HISTORY}>Lịch sử</Link>
         </Menu.Item>
         <Menu.Item key='search'>
-          <Link to='/tim-kiem'>Tìm kiếm</Link>
+          <Link to={routes.SEARCH}>Tìm kiếm</Link>
         </Menu.Item>
       </Menu>
     </Header>
