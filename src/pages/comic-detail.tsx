@@ -30,13 +30,19 @@ const ComicDetail = () => {
 
   useEffect(() => {
     setLoading(true)
-    api.getDetail(slug as string).then((_res) => {
-      const res: Data = _res as Data
-      setSeoOnPage(res.seoOnPage)
-      setData(res?.item as unknown as Item)
-      setCDNUrl(res.APP_DOMAIN_CDN_IMAGE)
-      setLoading(false)
-    })
+    api
+      .getDetail(slug as string)
+      .then((_res) => {
+        const res: Data = _res as Data
+        setSeoOnPage(res.seoOnPage)
+        setData(res?.item as unknown as Item)
+        setCDNUrl(res.APP_DOMAIN_CDN_IMAGE)
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.log(err)
+        history.push('/')
+      })
   }, [slug, chapter])
 
   useEffect(() => {

@@ -45,41 +45,47 @@ const ChapterDetail = (payload: {
   }
 
   useEffect(() => {
-    api.getChapter(chapter as string).then((_res) => {
-      const res: ChapterResponse = _res as ChapterResponse
-      setData(res.item)
-      setCdn(res.domain_cdn)
+    api
+      .getChapter(chapter as string)
+      .then((_res) => {
+        const res: ChapterResponse = _res as ChapterResponse
+        setData(res.item)
+        setCdn(res.domain_cdn)
 
-      // Set history
-      const histories = localStorage.getItem('history')
-      if (histories) {
-        const data = JSON.parse(histories)
-        const index = data.map((item: any) => item.slug).indexOf(slug)
-        if (index !== -1) data.splice(index, 1)
-        localStorage.setItem(
-          'history',
-          JSON.stringify([
-            ...data,
-            {
-              slug,
-              chapter_name: res.item.chapter_name,
-              detail: detail
-            }
-          ])
-        )
-      } else {
-        localStorage.setItem(
-          'history',
-          JSON.stringify([
-            {
-              slug,
-              chapter_name: res.item.chapter_name,
-              detail
-            }
-          ])
-        )
-      }
-    })
+        // Set history
+        const histories = localStorage.getItem('history')
+        if (histories) {
+          const data = JSON.parse(histories)
+          const index = data.map((item: any) => item.slug).indexOf(slug)
+          if (index !== -1) data.splice(index, 1)
+          localStorage.setItem(
+            'history',
+            JSON.stringify([
+              ...data,
+              {
+                slug,
+                chapter_name: res.item.chapter_name,
+                detail: detail
+              }
+            ])
+          )
+        } else {
+          localStorage.setItem(
+            'history',
+            JSON.stringify([
+              {
+                slug,
+                chapter_name: res.item.chapter_name,
+                detail
+              }
+            ])
+          )
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        history.push(`/truyen/${slug}`)
+      })
   }, [chapter, slug])
 
   useEffect(() => {

@@ -65,7 +65,7 @@ const HeaderComp = () => {
         </SubMenu>
         <SubMenu title='Danh Sách' key='commic-list'>
           <Menu.Item key='new'>
-            <Link to='/truyen-moi'>Mới Cập Nhật</Link>
+            <Link to='/danh-sach/truyen-moi'>Mới Cập Nhật</Link>
           </Menu.Item>
           <Menu.Item key='comming-soon'>
             <Link to='/danh-sach/sap-ra-mat'>Sắp Ra Mắt</Link>

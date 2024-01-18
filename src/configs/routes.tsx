@@ -1,5 +1,5 @@
 const routes = {
-  PUBLIC: '/*',
+  PUBLIC: '/',
   PRIVATE: '/*',
   HOME: '',
   COMIC_LIST: 'danh-sach/:type?',

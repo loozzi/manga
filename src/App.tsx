@@ -25,24 +25,23 @@ const App = () => {
           <Route path={routes.COMIC} element={<ComicDetail />} />
           <Route path={routes.HISTORY} element={<HistoryPage />} />
           <Route path={routes.SEARCH} element={<SearchPage />} />
+          <Route
+            path='*'
+            element={
+              <Result
+                style={{ backgroundColor: '#fff', height: '100vh' }}
+                status='404'
+                title='404'
+                subTitle='Sorry, the page you visited does not exist.'
+                extra={
+                  <Button type='primary' onClick={() => history.push('/')}>
+                    Back Home
+                  </Button>
+                }
+              />
+            }
+          />
         </Route>
-        <Route
-          path='/404'
-          element={
-            <Result
-              style={{ backgroundColor: '#fff', height: '100vh' }}
-              status='404'
-              title='404'
-              subTitle='Sorry, the page you visited does not exist.'
-              extra={
-                <Button type='primary' onClick={() => history.push('/')}>
-                  Back Home
-                </Button>
-              }
-            />
-          }
-        />
-        <Route path={routes.PRIVATE} element={<PrivateLayout />}></Route>
       </Routes>
     </div>
   )
