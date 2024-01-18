@@ -1,3 +1,3 @@
-import { BrowserHistory, createBrowserHistory } from 'history'
+import { createBrowserHistory } from '@remix-run/router'
 
-export const history: BrowserHistory = createBrowserHistory()
+export const history = createBrowserHistory({ v5Compat: true })

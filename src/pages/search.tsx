@@ -9,13 +9,11 @@ const SearchPage = () => {
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState<Item[]>([])
-  const [page, setPage] = useState<Number>(1)
   const [domainCdn, setDomainCdn] = useState<string>('')
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setData([])
-      setPage(1)
       setLoading(true)
       api.search(search).then((response: any) => {
         setData(response.items)

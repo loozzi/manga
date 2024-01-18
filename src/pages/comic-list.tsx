@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import ListCardComp from '~/components/list-card'

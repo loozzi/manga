@@ -1,10 +1,4 @@
-import {
-  HistoryOutlined,
-  HomeOutlined,
-  MenuUnfoldOutlined,
-  SearchOutlined,
-  UnorderedListOutlined
-} from '@ant-design/icons'
+import { HistoryOutlined, MenuUnfoldOutlined, SearchOutlined, UnorderedListOutlined } from '@ant-design/icons'
 import { Space } from 'antd'
 import icon from '~/assets/imgs/icon.png'
 import { history } from '~/configs/history'

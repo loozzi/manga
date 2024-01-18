@@ -1,7 +1,6 @@
 import { Card, Col, Row } from 'antd'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Item } from '~/models/data'
 
 const HistoryPage = () => {
   const [data, setData] = useState<any[]>([])
