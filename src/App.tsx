@@ -7,7 +7,6 @@ import HomePage from '~/pages/home'
 import ComicList from './pages/comic-list'
 import CategoryList from './pages/category-list'
 import ComicDetail from './pages/comic-detail'
-import ChapterDetail from './pages/chapter-detail'
 
 const App = () => {
   const location = useLocation()

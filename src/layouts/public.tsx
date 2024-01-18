@@ -1,4 +1,3 @@
-import React from 'react'
 import { Outlet } from 'react-router'
 import { Content } from 'antd/es/layout/layout'
 import { Layout } from 'antd'

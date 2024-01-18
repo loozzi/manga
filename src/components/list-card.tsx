@@ -1,5 +1,5 @@
 import { PaginationProps, Divider, Row, Pagination, Flex, Spin, Skeleton } from 'antd'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, Suspense, useEffect, useState } from 'react'
 import api from '~/configs/api'
 import { Data, Item } from '~/models/data'
 import { PaginationModel } from '~/models/pagination'
@@ -27,16 +27,18 @@ const ListCardComp = (payload: { setSeoOnPage?: Function | undefined; type: stri
     setDomainCdn
     setBreadCrumb([])
     setLoading(true)
-    api.getByType(page, type).then((response: Data | any) => {
-      setData(response.items)
-      if (setSeoOnPage) setSeoOnPage(response.seoOnPage)
-      setPagination(response.params.pagination)
-      setDomainCdn(response.APP_DOMAIN_CDN_IMAGE)
-      setBreadCrumb(response.breadCrumb)
-      setLoading(false)
-      console.log(response.items)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    })
+    if (!type.includes('undefined'))
+      api.getByType(page, type).then((response: Data | any) => {
+        setData(response.items)
+        console.log(response.params.pagination)
+        if (setSeoOnPage) setSeoOnPage(response.seoOnPage)
+        setPagination(response.params.pagination)
+        setDomainCdn(response.APP_DOMAIN_CDN_IMAGE)
+        setBreadCrumb(response.breadCrumb)
+        setLoading(false)
+        console.log(response.items)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      })
   }, [page, type])
   return (
     <Fragment>
@@ -54,15 +56,17 @@ const ListCardComp = (payload: { setSeoOnPage?: Function | undefined; type: stri
       </Row>
       {!loading && (
         <Flex justify='center' style={{ marginTop: '16px' }}>
-          <Pagination
-            defaultCurrent={pagination.currentPage}
-            onChange={changePage}
-            showQuickJumper
-            size='default'
-            pageSize={pagination.totalItemsPerPage}
-            pageSizeOptions={[24]}
-            total={pagination.totalItems}
-          ></Pagination>
+          <Suspense fallback={<Spin />}>
+            <Pagination
+              defaultCurrent={pagination.currentPage}
+              onChange={changePage}
+              showQuickJumper
+              size='default'
+              pageSize={pagination.totalItemsPerPage}
+              pageSizeOptions={[24]}
+              total={pagination.totalItems}
+            ></Pagination>
+          </Suspense>
         </Flex>
       )}
     </Fragment>
