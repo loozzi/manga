@@ -3,7 +3,6 @@ import { Button, Result } from 'antd'
 
 import routes from '~/configs/routes'
 import PublicLayout from '~/layouts/public'
-import PrivateLayout from '~/layouts/private'
 import HomePage from '~/pages/home'
 import ComicList from '~/pages/comic-list'
 import CategoryList from '~/pages/category-list'

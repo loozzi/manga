@@ -7,6 +7,7 @@ import { Category } from '~/models/category'
 import SubMenu from 'antd/es/menu/SubMenu'
 import { Link } from 'react-router-dom'
 import routes from '~/configs/routes'
+import logo from '~/assets/imgs/logo.png'
 
 const HeaderComp = () => {
   const [menu, setMenu] = useState([])
@@ -57,7 +58,7 @@ const HeaderComp = () => {
               justifyContent: 'center'
             }}
           >
-            <img src='https://mangatooncom.vn/official/logo.svg' alt='' style={{ height: '32px' }} />
+            <img src={logo} alt='' style={{ height: '32px' }} />
           </Link>
         </Menu.Item>
         <SubMenu key='category' title='Thể loại'>

@@ -6,7 +6,7 @@ import {
   UnorderedListOutlined
 } from '@ant-design/icons'
 import { Space } from 'antd'
-import { Link } from 'react-router-dom'
+import icon from '~/assets/imgs/icon.png'
 import { history } from '~/configs/history'
 
 const HeaderMobileComp = () => {
@@ -50,11 +50,7 @@ const HeaderMobileComp = () => {
           padding: '16px 16px'
         }}
       >
-        <HomeOutlined
-          style={{
-            fontSize: 20
-          }}
-        />
+        <img src={icon} alt='' style={{ height: '24px' }} />
       </div>
 
       <div onClick={() => goTo('/tim-kiem')}>

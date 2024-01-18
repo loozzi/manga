@@ -1,5 +1,5 @@
-import { Alert, Skeleton } from 'antd'
-import { Fragment, useState } from 'react'
+import { Alert } from 'antd'
+import { Fragment, useEffect, useState } from 'react'
 import Marquee from 'react-fast-marquee'
 import ListCardComp from '~/components/list-card'
 import { SeoOnPage } from '~/models/response'
@@ -10,6 +10,10 @@ const HomePage = () => {
   const loadSeoOnpage = (s: SeoOnPage) => {
     setSeoOnPage(s)
   }
+
+  useEffect(() => {
+    document.title = 'Truyenmoi.fun - Truyện mới cập nhật - Truyện Hay Online'
+  }, [])
 
   return (
     <Fragment>
