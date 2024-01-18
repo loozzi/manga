@@ -64,7 +64,9 @@ const ComicDetail = () => {
           }}
         >
           <Col span={isTabletOrMobile ? 1 : 3}>100px</Col>
-          <Col span={isTabletOrMobile ? 22 : 18}>{!loading && <DetailComp item={data} cdn={CDNUrl} />}</Col>
+          <Col span={isTabletOrMobile ? 22 : 18}>
+            <DetailComp item={data} cdn={CDNUrl} loading={loading} />
+          </Col>
           <Col span={isTabletOrMobile ? 1 : 3}>100px</Col>
         </Row>
       )}

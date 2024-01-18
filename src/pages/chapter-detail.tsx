@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import api from '~/configs/api'
 import { Chapter, ChapterData, ChapterResponse } from '~/models/data'
 import { history } from '~/configs/history'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const ChapterDetail = (payload: {
   chapter: string
@@ -47,6 +48,17 @@ const ChapterDetail = (payload: {
       const res: ChapterResponse = _res as ChapterResponse
       setData(res.item)
       setCdn(res.domain_cdn)
+
+      // Set history
+      const histories = localStorage.getItem('history')
+      if (histories) {
+        const data = JSON.parse(histories)
+        const index = data.map((item: any) => item.slug).indexOf(slug)
+        if (index !== -1) data.splice(index, 1)
+        localStorage.setItem('history', JSON.stringify([...data, { slug, chapter_name: res.item.chapter_name }]))
+      } else {
+        localStorage.setItem('history', JSON.stringify([{ slug, chapter_name: res.item.chapter_name }]))
+      }
     })
   }, [chapter, slug])
 
@@ -145,8 +157,7 @@ const ChapterDetail = (payload: {
         >
           {data.chapter_image &&
             data.chapter_image.map((item, index) => (
-              <img
-                loading='lazy'
+              <LazyLoadImage
                 style={{
                   maxWidth: '1200px',
                   width: '100%'

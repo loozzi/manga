@@ -1,4 +1,4 @@
-import { Alert } from 'antd'
+import { Alert, Skeleton } from 'antd'
 import { Fragment, useState } from 'react'
 import Marquee from 'react-fast-marquee'
 import ListCardComp from '~/components/list-card'
@@ -13,15 +13,17 @@ const HomePage = () => {
 
   return (
     <Fragment>
-      <Alert
-        style={{ margin: '16px 16px 0' }}
-        type='info'
-        message={
-          <Marquee pauseOnClick gradient={false} speed={50}>
-            {seoOnPage.descriptionHead ?? 'Loading...'}
-          </Marquee>
-        }
-      />
+      {!!seoOnPage.descriptionHead && (
+        <Alert
+          style={{ margin: '16px 16px 0' }}
+          type='info'
+          message={
+            <Marquee pauseOnClick gradient={false} speed={50}>
+              {seoOnPage.descriptionHead}
+            </Marquee>
+          }
+        />
+      )}
       <ListCardComp setSeoOnPage={loadSeoOnpage} type='/danh-sach/truyen-moi' />
     </Fragment>
   )
