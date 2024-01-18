@@ -10,7 +10,11 @@ import HeaderMobileComp from '~/components/header-mobile'
 const PublicLayout = () => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   return (
-    <Layout>
+    <Layout
+      style={{
+        minHeight: '100vh'
+      }}
+    >
       {isTabletOrMobile ? <HeaderMobileComp /> : <Header />}
       <Content>
         <Outlet />

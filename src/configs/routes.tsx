@@ -4,7 +4,8 @@ const routes = {
   HOME: '',
   COMIC_LIST: 'danh-sach/:type?',
   CATEGORY_LIST: 'the-loai/:slug?',
-  COMIC: 'truyen/:slug/:chapter?'
+  COMIC: 'truyen/:slug/:chapter?',
+  HISTORY: 'lich-su'
 }
 
 export default routes

@@ -76,6 +76,7 @@ const ComicDetail = () => {
           slug={data.slug}
           listChapters={data?.chapters?.[0]?.server_data}
           exit={exit}
+          detail={{ name: data.name, thumb_url: data.thumb_url, orign_name: data.origin_name, domainCdn: CDNUrl }}
         />
       )}
     </Fragment>

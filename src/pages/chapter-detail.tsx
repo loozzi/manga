@@ -11,12 +11,13 @@ const ChapterDetail = (payload: {
   slug: string
   listChapters: Chapter[] | undefined
   exit: Function
+  detail: any
 }) => {
   const [data, setData] = useState<ChapterData>({} as ChapterData)
   const [cdn, setCdn] = useState<string>('')
-  const { slug, chapter, listChapters, exit } = payload
   const [isShowPrev, setIsShowPrev] = useState<boolean>(true)
   const [isShowNext, setIsShowNext] = useState<boolean>(true)
+  const { slug, chapter, listChapters, exit, detail } = payload
 
   const handleChangeChapter = (value: string) => {
     setData({} as ChapterData)
@@ -55,9 +56,28 @@ const ChapterDetail = (payload: {
         const data = JSON.parse(histories)
         const index = data.map((item: any) => item.slug).indexOf(slug)
         if (index !== -1) data.splice(index, 1)
-        localStorage.setItem('history', JSON.stringify([...data, { slug, chapter_name: res.item.chapter_name }]))
+        localStorage.setItem(
+          'history',
+          JSON.stringify([
+            ...data,
+            {
+              slug,
+              chapter_name: res.item.chapter_name,
+              detail: detail
+            }
+          ])
+        )
       } else {
-        localStorage.setItem('history', JSON.stringify([{ slug, chapter_name: res.item.chapter_name }]))
+        localStorage.setItem(
+          'history',
+          JSON.stringify([
+            {
+              slug,
+              chapter_name: res.item.chapter_name,
+              detail
+            }
+          ])
+        )
       }
     })
   }, [chapter, slug])
@@ -122,7 +142,7 @@ const ChapterDetail = (payload: {
         </Tooltip>
         <Select
           placeholder={`Chương: ${data.chapter_name}`}
-          style={{ maxWidth: '200px', width: '100%' }}
+          style={{ maxWidth: '160px', width: '100%' }}
           onChange={handleChangeChapter}
           defaultValue={data.chapter_name}
           value={data.chapter_name}
@@ -146,7 +166,7 @@ const ChapterDetail = (payload: {
       </Space.Compact>
       <div>
         <Watermark
-          content='Truyenmoi.net'
+          content='Truyenmoi.fun'
           inherit={false}
           style={{
             display: 'flex',
