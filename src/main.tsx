@@ -4,13 +4,14 @@ import App from './App.tsx'
 import { history } from './configs/history.tsx'
 import './index.css'
 import { Analytics } from '@vercel/analytics/react'
+import React from 'react'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  // <React.StrictMode>
-  // ts-expect-error
-  <HistoryRouter history={history}>
-    <App />
-    <Analytics />
-  </HistoryRouter>
-  // </React.StrictMode>
+  <React.StrictMode>
+    // ts-expect-error
+    <HistoryRouter history={history}>
+      <App />
+      <Analytics />
+    </HistoryRouter>
+  </React.StrictMode>
 )
